@@ -8,48 +8,87 @@ public class Connector : MonoBehaviour
 
     public GameObject conConnector;
 
-    public bool canConnect;
+    public bool canConnect = false;
     public bool isConnected;
 
     void Start()
     {
-        
+        conConnector = null;
     }
    
     void Update()
     {
-        
+        if (canConnect)
+        {
+            
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (conConnector.tag == "Connector_1")
+                {
+                    if (tag == "Connector_1")
+                    { 
+                        rail.transform.position = conConnector.transform.parent.GetComponent<Rail>().straight1.transform.position;
+                       // conConnector.GetComponent<Connector>().isConnected = true;
+                        isConnected = true;
+                        rail.GetComponent<Rail>().isPlaced = true;
+                    }
+
+                    if (tag == "Connector_2")
+                    {
+                        rail.transform.position = conConnector.transform.parent.GetComponent<Rail>().straight1.transform.position;
+                        //conConnector.GetComponent<Connector>().isConnected = true;
+                        isConnected = true;
+                        rail.GetComponent<Rail>().isPlaced = true;
+                    }
+                }
+
+                if (conConnector.tag == "Connector_2")
+                {
+                    if (tag == "Connector_1")
+                    {
+                        rail.transform.position = conConnector.transform.parent.GetComponent<Rail>().straight2.transform.position;
+                       // conConnector.GetComponent<Connector>().isConnected = true;
+                        isConnected = true;
+                        rail.GetComponent<Rail>().isPlaced = true;
+                    }
+
+                    if (tag == "Connector_2")
+                    {
+                        rail.transform.position = conConnector.transform.parent.GetComponent<Rail>().straight2.transform.position;
+                       // conConnector.GetComponent<Connector>().isConnected = true;
+                        isConnected = true;
+                        rail.GetComponent<Rail>().isPlaced = true;
+                    }
+                }
+
+                Cursor.visible = true;
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other)
-    {
-        if ((other.gameObject.tag == "Connector_1" || other.gameObject.tag == "Connector_2") && !rail.GetComponent<Rail>().isPlaced)
+    { 
+        if ((other.gameObject.CompareTag("Connector_1") || other.gameObject.CompareTag("Connector_2")) && !rail.GetComponent<Rail>().isPlaced)
         {
-            Debug.Log("s");
+
             conConnector = other.gameObject;
+            
 
             if (!other.gameObject.GetComponent<Connector>().isConnected && !isConnected)
             {
                 if (other.transform.parent.tag == "StraightRail")
                 {
-                    if (other.gameObject.transform.rotation.eulerAngles.z == transform.parent.rotation.eulerAngles.z)
-                    {
-                        canConnect = true;
-                    }
-                    else if (other.gameObject.transform.rotation.eulerAngles.z == transform.parent.rotation.eulerAngles.z + 180)
-                    {
-                        canConnect = true;
-                    }
-                    else if (other.gameObject.transform.rotation.eulerAngles.z == transform.parent.rotation.eulerAngles.z - 180)
-                    {
-                        canConnect = true;
-                    }
-                    else
-                    {
-                        canConnect = false;
-                    }
+                       canConnect = true;
                 }
+                else
+                {
+                    canConnect = false;
+                }
+
             }
         }
+        
+       
     }
 }
