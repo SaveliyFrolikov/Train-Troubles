@@ -5,7 +5,8 @@ using UnityEngine;
 public class RailPlacer : MonoBehaviour
 {
     [SerializeField] GameObject straightRail;
-   
+    [SerializeField] GameObject bendRail;
+
     void Start()
     {
         
@@ -24,6 +25,11 @@ public class RailPlacer : MonoBehaviour
                 if (hitInfo.collider.gameObject.tag == "StraightRailPile")
                 {
                     Instantiate(straightRail);
+                }
+
+                if (hitInfo.collider.gameObject.tag == "BendRailPile")
+                {
+                    Instantiate(bendRail);
                 }
             }
         }

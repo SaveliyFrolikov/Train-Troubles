@@ -12,13 +12,13 @@ public class Rail : MonoBehaviour
     [SerializeField] LayerMask mask;
 
     public GameObject straight1, straight2;
+    public GameObject bend1, bend2;
 
-    GameObject c1, c2;
+   
     
     void Start()
     {
-        c1 = connector1.conConnector;
-        c2 = connector2.conConnector;
+        
     }
 
  
@@ -37,8 +37,10 @@ public class Rail : MonoBehaviour
             {
                 transform.Rotate(0, 0, 30);
             }
-
-            
+        }
+        else
+        {
+            Cursor.visible = true;
         }
     }
 }

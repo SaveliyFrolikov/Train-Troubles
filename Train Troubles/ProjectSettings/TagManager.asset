@@ -8,6 +8,8 @@ TagManager:
   - Connector_2
   - StraightRail
   - StraightRailPile
+  - BendRail
+  - BendRailPile
   layers:
   - Default
   - TransparentFX
