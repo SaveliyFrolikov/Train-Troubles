@@ -233,6 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rail: {fileID: 3378400194837072578}
   conConnector: {fileID: 0}
+  bendRailOffset: 0.3
   canConnect: 0
   isConnected: 0
 --- !u!65 &6456165344103505157
@@ -294,6 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rail: {fileID: 3378400194837072578}
   conConnector: {fileID: 0}
+  bendRailOffset: 0.3
   canConnect: 0
   isConnected: 0
 --- !u!65 &7661884992357424385
@@ -333,7 +335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8235369678174174583}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.04747, y: 0.02178, z: -0}
+  m_LocalPosition: {x: 0.0468, y: 0.021, z: -0}
   m_LocalScale: {x: 0.01, y: 0.009999997, z: 0.009999997}
   m_Children: []
   m_Father: {fileID: 2713891288346759288}

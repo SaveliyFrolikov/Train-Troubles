@@ -6,12 +6,17 @@ public class Connector : MonoBehaviour
 
     public GameObject conConnector;
 
+    Rigidbody rb;
+
+    [SerializeField] float bendRailOffset;
+
     public bool canConnect = false;
     public bool isConnected;
 
     void Start()
     {
         conConnector = null;
+        rb = transform.parent.GetComponent<Rigidbody>();
     }
    
     void Update()
@@ -72,16 +77,15 @@ public class Connector : MonoBehaviour
 
                 if (transform.parent.tag == "BendRail")
                 {
-                    
-
                     if (conConnector.tag == "Connector_1")
                     {
                         if (tag == "Connector_1")
                         {
                             rail.transform.position = conConnector.transform.parent.GetComponent<Rail>().bend1.transform.position;
-                           
+                            
                             isConnected = true;
                             rail.GetComponent<Rail>().isPlaced = true;
+                            rail.transform.position -= new Vector3(transform.forward.x * bendRailOffset, 0, transform.forward.z * bendRailOffset);
                         }
 
                         if (tag == "Connector_2")
@@ -90,6 +94,7 @@ public class Connector : MonoBehaviour
                           
                             isConnected = true;
                             rail.GetComponent<Rail>().isPlaced = true;
+                            rail.transform.position -= new Vector3(transform.forward.x * bendRailOffset, 0, transform.forward.z * bendRailOffset);
                         }
                     }
 
@@ -98,19 +103,22 @@ public class Connector : MonoBehaviour
                         
                         if (tag == "Connector_1")
                         {
-                            
-                            
+                           
+
                             rail.transform.position = conConnector.transform.parent.GetComponent<Rail>().bend2.transform.position;
+                            
                             isConnected = true;
                             rail.GetComponent<Rail>().isPlaced = true;
-
+                            rail.transform.position -= new Vector3(transform.forward.x * bendRailOffset, 0, transform.forward.z * bendRailOffset);
                         }
 
                         if (tag == "Connector_2")
                         {
                             rail.transform.position = conConnector.transform.parent.GetComponent<Rail>().bend2.transform.position;
+                            
                             isConnected = true;
                             rail.GetComponent<Rail>().isPlaced = true;
+                            rail.transform.position -= new Vector3(transform.forward.x * bendRailOffset, 0, transform.forward.z * bendRailOffset);
                         }
                     }
                 }

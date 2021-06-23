@@ -9,10 +9,10 @@ public class RailPlacer : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
-    
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
