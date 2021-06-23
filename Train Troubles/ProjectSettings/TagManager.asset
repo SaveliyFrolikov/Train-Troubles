@@ -10,6 +10,7 @@ TagManager:
   - StraightRailPile
   - BendRail
   - BendRailPile
+  - WayPoint
   layers:
   - Default
   - TransparentFX
