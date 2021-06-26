@@ -11,6 +11,9 @@ TagManager:
   - BendRail
   - BendRailPile
   - WayPoint
+  - DoubleRail
+  - DoubleRailPile
+  - Connector_3
   layers:
   - Default
   - TransparentFX
@@ -21,7 +24,7 @@ TagManager:
   - 
   - 
   - Ground
-  - 
+  - RailColliders
   - 
   - 
   - 

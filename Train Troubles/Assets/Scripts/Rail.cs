@@ -6,13 +6,14 @@ public class Rail : MonoBehaviour
 {
     public Connector connector1;
     public Connector connector2;
+    public Connector connector3;
 
     public bool isPlaced = false;
 
     [SerializeField] LayerMask mask;
 
-    public GameObject straight1, straight2;
-    public GameObject bend1, bend2;
+    public GameObject straight1, straight2, straight3;
+    public GameObject bend1, bend2, bend3;
 
    
     

@@ -3646,7 +3646,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
     type: 0
     collisionMode: 0
@@ -4943,8 +4943,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1.638821}
-  m_Center: {x: 1.7426941e-15, y: 0, z: 1.122631}
+  m_Size: {x: 1.0858512, y: 1, z: 1.638821}
+  m_Center: {x: -0.00012350082, y: 0, z: 1.122631}
 --- !u!1001 &8500699932100653955
 PrefabInstance:
   m_ObjectHideFlags: 0
