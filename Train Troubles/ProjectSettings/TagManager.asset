@@ -14,6 +14,8 @@ TagManager:
   - DoubleRail
   - DoubleRailPile
   - Connector_3
+  - TrainStation
+  - Train
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - 
   - Ground
   - RailColliders
-  - 
+  - PP
   - 
   - 
   - 

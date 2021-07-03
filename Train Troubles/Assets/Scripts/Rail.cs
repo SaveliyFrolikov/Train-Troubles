@@ -15,11 +15,25 @@ public class Rail : MonoBehaviour
     public GameObject straight1, straight2, straight3;
     public GameObject bend1, bend2, bend3;
 
-   
+    [SerializeField] AudioClip[] pop;
+    AudioClip popClip;
+    AudioSource audioSource;
+
+    bool put;
+    [SerializeField]bool tutRail = false;
+
+    [SerializeField] GameObject img12, squares;
     
     void Start()
     {
+        put = false;
         
+        audioSource = GetComponent<AudioSource>();
+
+        if (isPlaced)
+        {
+            put = true;
+        }
     }
 
  
@@ -38,10 +52,34 @@ public class Rail : MonoBehaviour
             {
                 transform.Rotate(0, 0, 30);
             }
+
+            RailPlacer.holdingRail = true;
         }
         else
         {
             Cursor.visible = true;
+
+            if (!put)
+            {
+                RailPlacer.holdingRail = false;
+                MoneyManager manager = GameObject.Find("Manager").GetComponent<MoneyManager>();
+                manager.money -= 3;
+                int index = Random.Range(0, pop.Length);
+                popClip = pop[index];
+                audioSource.clip = popClip;
+                audioSource.Play();
+                put = true;
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (tutRail)
+        {
+            img12.SetActive(true);
+            squares.SetActive(true);
+            RailPlacer.holdingRail = false;
         }
     }
 }

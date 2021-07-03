@@ -6,11 +6,11 @@ public class Wagon : MonoBehaviour
 {
     [SerializeField] float rotationSpeed;
     [SerializeField] float speed;
-    [SerializeField] float timer;
+    
     float singleStep;
     float step;
     [SerializeField] float offset;
-    [SerializeField] GameObject train;
+    public GameObject train;
     [SerializeField] GameObject target;
     bool stop = false;
     Vector3 current;
@@ -24,12 +24,6 @@ public class Wagon : MonoBehaviour
 
     void Update()
     {
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-        }
-        else
-        {
             current = train.transform.position;
 
             if (current != past)
@@ -42,7 +36,7 @@ public class Wagon : MonoBehaviour
             }
             past = current;
 
-            timer = 0;
+            
             singleStep = speed * Time.deltaTime;
             step = speed * Time.deltaTime;
 
@@ -54,18 +48,17 @@ public class Wagon : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
 
             }
-        }
+        
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "WayPoint")
         {
-            target = other.gameObject;
-        }
-        else
-        {
-            target = null;
+            if (other.gameObject.transform.parent.parent.GetComponent<Rail>().isPlaced)
+            {
+                target = other.gameObject;
+            }
         }
     }
 }
